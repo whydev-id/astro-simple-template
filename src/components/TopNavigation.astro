@@ -1,0 +1,13 @@
+---
+import Logo from "../assets/icons/logo.svg";
+import ThemeSwitcher from "./ThemeSwitcher.astro";
+---
+
+<div class="mt-10 mb-20 h-[60px] w-full md:mb-35">
+  <nav class="relative flex w-full items-center justify-between">
+    <a href="/" aria-label="Homepage" rel="Homepage"
+      ><Logo size={15} class="size-15" />
+    </a>
+    <ThemeSwitcher />
+  </nav>
+</div>

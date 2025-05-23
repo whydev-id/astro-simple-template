@@ -1,0 +1,7 @@
+---
+const { customClass = "mb-10 md:mb-12", id } = Astro.props;
+---
+
+<section class:list={["w-full", customClass]} id={id}>
+  <slot />
+</section>

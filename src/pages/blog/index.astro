@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import ArticleLine from "../../components/ArticleLine.astro";
+import MainHeading from "../../components/MainHeading.astro";
+import Sections from "../../components/Sections.astro";
+import Base from "../../layouts/Base.astro";
+
+const blogs = await getCollection("blogs");
+blogs.sort((a: any, b: any) => a.data.published - b.data.published).reverse();
+---
+
+<Base pageTitle="My Blog" pageDescription="Page description SEO">
+  <Sections>
+    <MainHeading heading="My Blog" subHeading="Subheading text" />
+  </Sections>
+
+  <Sections id="blog-lists">
+    {
+      blogs.map((blog: any) => (
+        <ArticleLine
+          dateTime={blog.data.published}
+          title={blog.data.title}
+          link={`/blog/${blog.id}/`}
+        />
+      ))
+    }
+  </Sections>
+</Base>

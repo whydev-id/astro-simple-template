@@ -1,0 +1,27 @@
+---
+import Arrow from "../assets/icons/arrow-right.svg";
+import { dateConversion } from "../scripts/utils";
+import ArticleMiniInfo from "./ArticleMiniInfo.astro";
+
+const { title, link, dateTime } = Astro.props;
+const convertedDate = dateConversion(dateTime);
+---
+
+<article
+  class="align-start flex w-full flex-col border-b-1 border-gray-200 py-3 last-of-type:border-none dark:border-slate-700"
+>
+  <ArticleMiniInfo time={convertedDate} icon="published" hasIcon={false} />
+  <h2 class="text-xl font-bold italic md:text-3xl">
+    <a
+      href={link}
+      class="group hover:text-primary-200 focus-visible:text-primary-200 inline-flex w-full gap-3 transition-all duration-300 focus-visible:transition-none dark:text-neutral-100"
+    >
+      <span class="max-full md:max-w-9/10">{title}</span>
+      <Arrow
+        size={20}
+        fill="currentColor"
+        class="hidden h-9 w-10 -translate-x-20 transform justify-center self-center opacity-0 transition-all duration-200 ease-out group-hover:translate-x-1 group-hover:opacity-100 group-focus-visible:translate-x-1 group-focus-visible:opacity-100 md:block"
+      />
+    </a>
+  </h2>
+</article>

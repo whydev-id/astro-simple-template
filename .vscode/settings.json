@@ -1,0 +1,21 @@
+{
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "biomejs.biome",
+	"javascript.preferences.organizeImports": {
+		"source.organizeImports.biome": "explicit"
+	},
+	"typescript.preferences.organizeImports": {
+		"source.organizeImports.biome": "explicit"
+	},
+	"prettier.documentSelectors": ["**/*.astro"],
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[markdown]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"editor.wordWrap": "on",
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
+}

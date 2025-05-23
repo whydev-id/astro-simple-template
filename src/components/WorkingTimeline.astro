@@ -1,0 +1,42 @@
+---
+const { title, startFrom, endAt, jobDesks, companyName, companyInitial } =
+	Astro.props;
+---
+
+<div class="group relative">
+  <div
+    class="before:bg-base-300 flex before:absolute before:left-2 before:h-full before:w-[1px] before:translate-x-[2px] before:translate-y-7 group-last-of-type:before:content-none md:before:translate-x-[27px] dark:before:bg-white"
+  >
+  </div>
+  <div class="mb-5 flex gap-5 group-last:mb-0">
+    <div
+      class="align-center border-base-300 bg-base-200 relative mt-2 flex size-5 shrink-0 justify-center overflow-hidden rounded-full border md:mt-0 md:size-18 dark:bg-white"
+    >
+      <span
+        class="hidden h-full w-full items-center justify-center text-xs font-bold text-neutral-200 uppercase md:flex"
+        >{companyInitial}</span
+      >
+    </div>
+
+    <div class="grid w-full items-start gap-2 py-2 md:grid-cols-[0.8fr_0.2fr]">
+      <div>
+        <h3 class="text-md mb-1 leading-none font-semibold dark:text-white">
+          {companyName}
+        </h3>
+        <p class="text-md dark:text-drkbase-300 mb-1">{title}</p>
+      </div>
+
+      <p class="dark:text-drkbase-300 text-sm font-semibold">
+        {startFrom} - {endAt}
+      </p>
+
+      <ul class="pl-5">
+        {
+          jobDesks?.map((job: string) => (
+            <li class="dark:text-drkbase-300 list-disc text-sm">{job}</li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</div>

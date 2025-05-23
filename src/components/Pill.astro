@@ -1,0 +1,21 @@
+---
+const { title = "", linkURL = "", icon = null, ...restProps } = Astro.props;
+
+const isLink = linkURL !== "";
+const Tag = isLink ? "a" : "span";
+const hoverProps = isLink
+	? "hover:text-white transition-all duration-75 ease-in hover:bg-primary-200 hover:border-primary-200"
+	: "";
+const myClassName = `flex rounded-full border dark:border-white dark:text-white border-gray-700 px-3 py-1.5 text-xs text-gray-700 sm:text-sm items-center gap-2 ${hoverProps}`;
+
+const tagProps = {
+	...(isLink && { href: linkURL }),
+	class: myClassName,
+	...restProps,
+};
+---
+
+<Tag {...tagProps}>
+  {icon !== null && <Fragment class="w-full" set:html={icon} />}
+  {title && <span>{title}</span>}
+</Tag>

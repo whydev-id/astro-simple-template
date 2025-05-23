@@ -1,0 +1,21 @@
+@theme {
+	/* Default font */
+	--font-sans: var(--font-inter);
+
+	/* Light theme */
+	--color-base-200: oklch(0.97 0 none);
+	--color-base-300: oklch(0.845 0 none);
+	--color-primary-100: oklch(0.584 0.214 22.5);
+	--color-primary-200: oklch(0.701 0.19 22.3);
+	--color-neutral-200: oklch(0.371 0 none);
+
+	/* Dark theme */
+	--color-drkbase-100: oklch(0.231 0.036 244);
+	--color-drkbase-200: oklch(0.293 0.036 246);
+	--color-drkbase-300: oklch(87.2% 0.01 258.338);
+	--color-drkneutral-100: oklch(0.907 0 none);
+
+	/* Menu */
+	--color-drkbase-menu: oklch(0.23 0.04 243.77 / 0.95);
+	--color-base-menu: oklch(1 0 0 / 0.95);
+}

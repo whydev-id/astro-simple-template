@@ -1,0 +1,22 @@
+---
+import { getCollection, render } from "astro:content";
+import DetailPageLayout from "../../layouts/DetailPageLayout.astro";
+
+export async function getStaticPaths() {
+	const blogs = await getCollection("blogs");
+	return blogs.map((blog) => ({
+		params: { slug: blog.id },
+		props: { blog },
+	}));
+}
+
+const { blog } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(blog);
+---
+
+<DetailPageLayout
+  frontmatter={blog.data}
+  minutesRead={remarkPluginFrontmatter.minutesRead}
+>
+  <Content />
+</DetailPageLayout>

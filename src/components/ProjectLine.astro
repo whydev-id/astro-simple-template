@@ -1,0 +1,27 @@
+---
+import ChevronRight from "../assets/icons/chevron-right.svg";
+
+const { title, description, linkURL = "#" } = Astro.props;
+---
+
+<section class="mb-1 py-2">
+  <div class="flex gap-5">
+    <div class="w-full">
+      <a
+        href={linkURL}
+        target={linkURL == "#" ? "" : "_blank"}
+        rel={linkURL == "#" ? "" : "noopener noreferrer"}
+        class="group text-primary-100 hover:text-primary-200 focus-visible:text-primary-200 dark:text-primary-200 dark:hover:text-primary-100 dark:focus-visible:text-primary-100 inline-flex flex-col items-start gap-3 transition-all duration-500 focus-visible:transition-none md:flex-row md:items-center md:gap-1"
+      >
+        <h3 class="text-md leading-none font-semibold">
+          {title}
+        </h3>
+        <ChevronRight
+          size={4}
+          class="hidden size-4 transform justify-center self-center opacity-0 transition-all duration-500 ease-out group-hover:translate-x-1 group-hover:opacity-100 group-focus-visible:translate-x-1 group-focus-visible:opacity-100 md:block"
+        />
+      </a>
+      <p class="dark:text-drkbase-300 mt-2 text-sm">{description}</p>
+    </div>
+  </div>
+</section>

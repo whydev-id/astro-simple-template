@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "./variables.css";
+@import "./theme.css";
+@import "./base.css";
+@import "./animation.css";
+@import "./custom-variant.css";
+@plugin "@tailwindcss/typography";

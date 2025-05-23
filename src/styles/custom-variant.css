@@ -1,0 +1,7 @@
+@custom-variant prose-inline-code {
+	&.prose :where(:not(pre) > code):not(:where([class~="not-prose"] *)) {
+		@slot;
+	}
+}
+@custom-variant dark (&:where(.dark, .dark *));
+@custom-variant hover (&:hover);

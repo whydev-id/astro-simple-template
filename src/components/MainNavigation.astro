@@ -1,0 +1,60 @@
+---
+import Comment from "../assets/icons/comment.svg";
+import Home from "../assets/icons/home.svg";
+import User from "../assets/icons/user.svg";
+
+const mainMenu = [
+	{
+		url: "/",
+		title: "Home",
+		logo: "home",
+	},
+	{
+		url: "/blog/",
+		title: "Blog",
+		logo: "comment",
+	},
+	{
+		url: "/about/",
+		title: "About",
+		logo: "user",
+	},
+];
+
+const iconMap = {
+	home: Home,
+	user: User,
+	comment: Comment,
+};
+---
+
+<div class="fixed right-0 bottom-0 w-full">
+  <div class="flex justify-center">
+    <nav
+      class="bg-drkbase-menu dark:bg-base-menu relative z-10 mx-auto flex min-h-15 items-center justify-center gap-2 rounded-full px-5 py-1 backdrop-blur-sm md:px-8 md:py-5"
+    >
+      {
+        mainMenu.map((menu) => {
+          const Icon = iconMap[menu.logo];
+          return (
+            <a
+              href={menu.url}
+              aria-label={menu.title}
+              class="group hover:bg-primary-200 focus-visible:bg-primary-200 dark:text-drkbase-100 flex items-center justify-center overflow-hidden rounded-full px-4 py-2 text-white transition-all duration-400 ease-in md:px-6 dark:hover:text-white"
+            >
+              <Icon size={5} class="size-4 shrink-0 md:size-5" />
+              <span class="invisible max-w-0 -translate-x-1 transform overflow-hidden text-white opacity-0 transition-all duration-500 ease-in-out group-hover:visible group-hover:max-w-xs group-hover:translate-x-1 group-hover:opacity-100 group-focus-visible:visible group-focus-visible:max-w-xs group-focus-visible:translate-x-1 group-focus-visible:opacity-100">
+                {menu.title}
+              </span>
+            </a>
+          );
+        })
+      }
+    </nav>
+  </div>
+
+  <div
+    class="dark:bg-drkbase-100 h-5 w-full bg-white to-transparent [mask-image:linear-gradient(to_top,black,transparent)] backdrop-blur-lg"
+  >
+  </div>
+</div>

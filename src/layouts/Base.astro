@@ -1,0 +1,43 @@
+---
+import { Font } from "astro:assets";
+import MainNavigation from "../components/MainNavigation.astro";
+import MetaHead from "../components/MetaHead.astro";
+import Scripts from "../components/Scripts.astro";
+import SkipToContent from "../components/SkipToContent.astro";
+import TopNavigation from "../components/TopNavigation.astro";
+import stylesUrl from "../styles/global.css?url";
+
+const { pageTitle, pageDescription, skipContent = false } = Astro.props;
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="index" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <MetaHead pageTitle={pageTitle} pageDescription={pageDescription} />
+    <Font cssVariable="--font-inter" preload />
+    <link rel="preload" href={stylesUrl} as="style" />
+    <link rel="stylesheet" href={stylesUrl} />
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (localStorage.getItem("color-theme") === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+  </head>
+  <body class="dark:bg-drkbase-100 mx-auto max-w-3xl bg-white px-6 antialiased">
+    {skipContent && <SkipToContent />}
+    <TopNavigation />
+    <main
+      id="swup"
+      class="align transition-fade mx-auto flex min-h-[calc(80vh-150px)] flex-col items-center justify-center pb-25 wrap-anywhere md:pb-35"
+    >
+      <slot />
+    </main>
+    <MainNavigation />
+    <Scripts />
+  </body>
+</html>

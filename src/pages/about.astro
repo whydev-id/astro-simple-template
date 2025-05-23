@@ -1,0 +1,132 @@
+---
+import MainHeading from "../components/MainHeading.astro";
+import Pill from "../components/Pill.astro";
+import ProjectLine from "../components/ProjectLine.astro";
+import Sections from "../components/Sections.astro";
+import SimpleArticle from "../components/SimpleArticle.astro";
+import WorkingTimeline from "../components/WorkingTimeline.astro";
+
+import Base from "../layouts/Base.astro";
+
+import { Picture } from "astro:assets";
+import Github from "../assets/icons/github.svg?raw";
+import LinkedIn from "../assets/icons/linkedIn.svg?raw";
+import userProfile from "../assets/images/profile-pic.jpg";
+import user from "../data/user.json";
+---
+
+<Base pageTitle="About Me" pageDescription="Page description SEO">
+  <div class="w-full">
+    <div class="mb-8 flex items-center justify-between gap-8 md:mb-16">
+      <div
+        class="relative hidden size-30 shrink-0 self-start overflow-hidden rounded-full border border-gray-200 md:flex"
+      >
+        <Picture
+          src={userProfile}
+          alt="User profile image"
+          width="118"
+          height="118"
+          formats={["avif", "webp"]}
+          class="h-full w-full object-cover"
+        />
+      </div>
+
+      <div class="w-full">
+        <MainHeading heading="Hi, I'm John Doe" subHeading="subheading text" />
+
+        <div class="flex flex-wrap gap-2">
+          <Pill
+            linkURL={user?.social?.linkedin?.url}
+            icon={LinkedIn}
+            title="Connect"
+            aria-label="LinkedIn link URL"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+
+          <Pill
+            linkURL={user?.social?.github?.url}
+            icon={Github}
+            title="Follow"
+            aria-label="GitHub link URL"
+            target="_blank"
+            rel="noopener noreferrer"
+          />
+        </div>
+      </div>
+    </div>
+
+    <Sections id="Short text">
+      <SimpleArticle title="Short Text"
+        ><p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+          culpa qui officia deserunt mollit anim id est laborum.
+        </p></SimpleArticle
+      >
+    </Sections>
+
+    <Sections id="my-skills">
+      <SimpleArticle title="My Skills" />
+      <div class="flex flex-wrap justify-start gap-2">
+        {user?.skils.map((skill) => <Pill title={skill} />)}
+      </div>
+    </Sections>
+
+    <Sections id="work-experience">
+      <SimpleArticle title="Work Experience" customClass="mb-4" />
+      {
+        user?.experience?.works.map((work) => (
+          <WorkingTimeline
+            title={work.title}
+            companyName={work.companyName}
+            companyInitial={work.companyInitial}
+            startFrom={work.from}
+            endAt={work.to}
+            jobDesks={work.jobDesks}
+          />
+        ))
+      }
+    </Sections>
+
+    <Sections id="project">
+      <SimpleArticle title="My project" customClass="mb-3"
+        ><p>Project list</p></SimpleArticle
+      >
+      {
+        user?.projectLists?.map((project) => (
+          <ProjectLine
+            title={project.title}
+            linkURL={project.url}
+            description={project.description}
+          />
+        ))
+      }
+    </Sections>
+
+    <Sections id="contact">
+      <SimpleArticle title="Contact">
+        <ul>
+          <li>
+            <a
+              href={user?.social?.linkedin?.url}
+              target="_blank"
+              rel="noopener noopener">LinkedIn</a
+            >
+          </li>
+          <li>
+            <a
+              href={user?.social?.github?.url}
+              target="_blank"
+              rel="noopener noopener">Github</a
+            >
+          </li>
+        </ul></SimpleArticle
+      >
+    </Sections>
+  </div>
+</Base>

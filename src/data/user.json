@@ -1,0 +1,62 @@
+{
+	"name": "John Doe",
+	"title": "Your title",
+	"social": {
+		"linkedin": {
+			"username": "linkedin username",
+			"url": "https://www.linkedin.com/"
+		},
+		"github": {
+			"username": "github username",
+			"url": "https://github.com/"
+		}
+	},
+	"website": {
+		"url": "your website url",
+		"title": "John Doe - Your title",
+		"description": "Personal website, portfolio and blog",
+		"logo": "https://yourwebsite.url/logo.png",
+		"themeColor": "#364153",
+		"isResumeAvailable": false
+	},
+	"experience": {
+		"works": [
+			{
+				"companyName": "Company Name",
+				"companyInitial": "ABC",
+				"title": "Developer",
+				"location": "City, Country",
+				"from": "2020",
+				"to": "Present",
+				"jobDesks": ["Your task 1", "Your task 2", "Your task 3"]
+			},
+			{
+				"companyName": "Company Name 2",
+				"companyInitial": "CDE",
+				"title": "Developer",
+				"location": "City, Country",
+				"from": "2019",
+				"to": "2020",
+				"jobDesks": ["Your task 1", "Your task 2", "Your task 3"]
+			}
+		]
+	},
+	"projectLists": [
+		{
+			"title": "project 1",
+			"url": "example-url.com",
+			"description": ""
+		},
+		{
+			"title": "project 2",
+			"url": "example-url.com",
+			"description": ""
+		},
+		{
+			"title": "project 3",
+			"url": "example-url.com",
+			"description": ""
+		}
+	],
+	"skils": ["Skill 1", "Skill 2", "Skill 3"]
+}

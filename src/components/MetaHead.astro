@@ -1,0 +1,42 @@
+---
+import user from "../data/user.json";
+
+const { pageTitle, pageDescription } = Astro.props;
+const defaultPageTitle = pageTitle
+	? `${pageTitle} | ${user.website.title}`
+	: user.website.title;
+const defaultPageDescription = pageDescription
+	? pageDescription
+	: user.website.description;
+
+const jsonLD = {
+	"@context": "http://schema.org",
+	"@type": "WebSite",
+	name: user.name,
+	url: user.website.url,
+	headline: user.website.description,
+	description: user.website.description,
+	image: user.website.logo,
+	author: {
+		"@type": "Person",
+		name: user.name,
+	},
+};
+---
+
+{/* SEO */}
+<title>{defaultPageTitle}</title>
+<meta name="description" content={defaultPageDescription} />
+
+{/* Sitemap & default icons */}
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href={user.website.logo} />
+<meta name="theme-color" content={user.website.themeColor} />
+<meta
+  name="apple-mobile-web-app-status-bar"
+  content={user.website.themeColor}
+/>
+
+{/* JSONLD */}
+<script type="application/ld+json" set:html={JSON.stringify(jsonLD)} />

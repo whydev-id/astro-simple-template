@@ -1,0 +1,20 @@
+@layer base {
+	a,
+	button,
+	input,
+	textarea {
+		&:focus-visible {
+			@apply outline-primary-200 rounded-md outline-3 outline-solid;
+		}
+	}
+
+	img,
+	picture,
+	video {
+		@apply h-auto max-w-full rounded-lg;
+	}
+
+	picture {
+		@apply w-full;
+	}
+}

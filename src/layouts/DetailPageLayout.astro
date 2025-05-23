@@ -1,0 +1,44 @@
+---
+import ArticleMiniInfo from "../components/ArticleMiniInfo.astro";
+import MainHeading from "../components/MainHeading.astro";
+import Base from "./Base.astro";
+
+const {
+	frontmatter,
+	title: componentTitle,
+	description: componentDescription,
+	published: componentPublished,
+	edited: componentEdited,
+	minutesRead: componentMinutesRead,
+} = Astro.props;
+
+const pageTitle = frontmatter?.title || componentTitle || "";
+const pageDescription = frontmatter?.description || componentDescription;
+const published = frontmatter?.published || componentPublished || "";
+const edited = frontmatter?.edited || componentEdited || "";
+const minutesRead = frontmatter?.minutesRead || componentMinutesRead || "";
+---
+
+<Base
+  pageTitle={pageTitle}
+  pageDescription={pageDescription}
+  skipContent={true}
+>
+  <MainHeading heading={pageTitle} />
+
+  <div class="mb-5 w-full">
+    <ArticleMiniInfo label="Published: " time={published} icon="published" />
+    {edited && <ArticleMiniInfo label="Edited: " time={edited} icon="edited" />}
+    <ArticleMiniInfo label={minutesRead} icon="reading time" />
+  </div>
+
+  <hr class="mb-5 h-1 w-full text-slate-100 dark:text-slate-700" />
+
+  <article
+    id="main-content"
+    tabindex="-1"
+    class="prose dark:prose-invert md:prose-lg lg:prose-xl prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none prose-code:px-2 prose-code:font-normal prose-a:text-primary-100 prose-a:hover:text-primary-200 dark:prose-a:text-primary-200 dark:prose-a:hover:text-primary-100 prose-a:no-underline prose-inline-code:bg-base-300 prose-inline-code:text-neutral-200 dark:prose-inline-code:text-drkbase-100 dark:prose-inline-code:bg-white w-full"
+  >
+    <slot />
+  </article>
+</Base>

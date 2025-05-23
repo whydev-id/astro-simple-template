@@ -1,0 +1,31 @@
+---
+import CalendarUp from "../assets/icons/calendar-up.svg";
+import Calendar from "../assets/icons/calendar.svg";
+import Clock from "../assets/icons/clock.svg";
+import { dateConversion } from "../scripts/utils";
+
+const { label, time, icon, hasIcon = true } = Astro.props;
+const convertedDate = dateConversion(time);
+
+const iconStyle = "inline-block h-5 w-5";
+const iconType = icon.toLowerCase();
+---
+
+{
+  (label || time) && (
+    <p class="md:align-center dark:text-drkbase-300 mb-2 text-sm text-balance text-gray-500 md:flex">
+      {iconType === "published" && hasIcon && (
+        <Calendar size={20} class={iconStyle} />
+      )}
+      {iconType === "edited" && hasIcon && (
+        <CalendarUp size={20} class={iconStyle} />
+      )}
+      {iconType === "reading time" && hasIcon && (
+        <Clock size={20} class={iconStyle} />
+      )}
+
+      {label && <span class="mx-1">{label}</span>}
+      {time && <time datetime={convertedDate}>{convertedDate}</time>}
+    </p>
+  )
+}

@@ -1,0 +1,18 @@
+---
+const { heading, subHeading, textCenter = false } = Astro.props;
+const hasSubHeading = subHeading;
+const isTextCenter = textCenter ? "text-center" : "";
+---
+
+<article class:list={["mb-4 w-full", isTextCenter]}>
+  <h1
+    class="mb-4 bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-4xl/tight font-bold text-transparent md:text-5xl/tight"
+  >
+    {heading}
+  </h1>
+  {
+    hasSubHeading && (
+      <p class="text-md md:text-lg dark:text-white">{subHeading}</p>
+    )
+  }
+</article>
