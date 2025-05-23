@@ -10,11 +10,11 @@ This is a modern, fast, and responsive website built using [Astro](https://astro
 
 ## Features
 
-- Fast and responsive website built with Astro
-- Styled with Tailwind CSS for a consistent and customizable design
-- Smooth page transitions via Swup.js
-- Easy to customize and extend with a modular directory structure
-- Optimized bundle package
+- Fast and responsive website built with Astro.
+- Styled with Tailwind CSS for a consistent and customizable design.
+- Smooth page transitions via Swup.js.
+- Easy to customize and extend with a modular directory structure.
+- Optimized bundle package.
 
 ## 📦 Getting Started
 
@@ -59,7 +59,7 @@ Build the project for production:
 npm run build
 ```
 
-The final, production-ready static files will be generated in the `/dist` directory & ready to deploy
+The final, production-ready static files will be generated in the `/dist` directory & ready to deploy.
 
 ## 📂 Directory Structure
 
