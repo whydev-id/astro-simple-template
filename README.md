@@ -14,6 +14,7 @@ This is a modern, fast, and responsive website built using [Astro](https://astro
 - Styled with Tailwind CSS for a consistent and customizable design
 - Smooth page transitions via Swup.js
 - Easy to customize and extend with a modular directory structure
+- Optimized bundle package
 
 ## 📦 Getting Started
 
