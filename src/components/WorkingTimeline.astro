@@ -1,5 +1,5 @@
 ---
-const { title, startFrom, endAt, jobDesks, companyName, companyInitial } =
+const { title, startFrom, endAt, jobDescriptions, companyName, companyInitial } =
 	Astro.props;
 ---
 
@@ -32,7 +32,7 @@ const { title, startFrom, endAt, jobDesks, companyName, companyInitial } =
 
       <ul class="pl-5">
         {
-          jobDesks?.map((job: string) => (
+          jobDescriptions?.map((job: string) => (
             <li class="dark:text-drkbase-300 list-disc text-sm">{job}</li>
           ))
         }

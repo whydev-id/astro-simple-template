@@ -28,7 +28,7 @@
 				"location": "City, Country",
 				"from": "2020",
 				"to": "Present",
-				"jobDesks": ["Your task 1", "Your task 2", "Your task 3"]
+				"jobDescriptions": ["Your task 1", "Your task 2", "Your task 3"]
 			},
 			{
 				"companyName": "Company Name 2",
@@ -37,7 +37,7 @@
 				"location": "City, Country",
 				"from": "2019",
 				"to": "2020",
-				"jobDesks": ["Your task 1", "Your task 2", "Your task 3"]
+				"jobDescriptions": ["Your task 1", "Your task 2", "Your task 3"]
 			}
 		]
 	},
